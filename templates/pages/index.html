@@ -48,36 +48,33 @@
                 <div class="form-group">
                     <select class="form-control search-fields" name="select-make">
                         <option selected="true" disabled="disabled">Model</option>
-                        <option>BMW</option>
-                        <option>Honda</option>
-                        <option>Lamborghini Huracán</option>
-                        <option>Sports Car</option>
+                        {% for model in serach_fields %}
+                        <option value="{{model.model}}">{{model.model}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
                     <select class="form-control search-fields" name="select-location">
                         <option selected="true" disabled="disabled">Location</option>
-                        <option>United States</option>
-                        <option>United Kingdom</option>
+                        {% for city in serach_fields %}
+                        <option value="{{city.city}}">{{city.city}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
                     <select class="form-control search-fields" name="select-year">
                         <option selected="true" disabled="disabled">Year</option>
-                        <option>2016</option>
-                        <option>2017</option>
-                        <option>2018</option>
-                        <option>2019</option>
+                        {% for year in serach_fields %}
+                        <option value="{{year.year}}">{{year.year}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
                     <select class="form-control search-fields" name="select-type">
                         <option selected="true" disabled="disabled">Select Type Of Car</option>
-                        <option>Sedan</option>
-                        <option>Sports</option>
-                        <option>Hatchback</option>
-                        <option>Pickup Truck</option>
-                        <option>SUV</option>
+                        {% for body_style in serach_fields %}
+                        <option value="{{body_style.body_style}}">{{body_style.body_style}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="range-slider clearfix">
@@ -131,7 +128,7 @@
 
                                     <span>${{car.price | intcomma}}</span>
                                 </div>
-                                <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car" style="min_height: 10px; max_height: 10px;">
+                                <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                             </a>
                             <div class="carbox-overlap-wrapper">
                                 <div class="overlap-box">
@@ -251,7 +248,7 @@
 
                                         {% if car.car_photo_1 %}
                                         <a href="{{car.car_photo_1.url}}" class="hidden">
-                                            <img class="hidden" src="img/car/car-2.jpg">
+                                            <img class="hidden" src="{{car.car_photo_1.url}}">
                                         </a>
                                         {% endif %}
 
