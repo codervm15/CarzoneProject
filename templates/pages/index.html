@@ -39,41 +39,41 @@
         </div>
         <!-- Search box 3 start -->
         <div class="search-box-4 sb-8">
-            <form action="{% url 'search' %}" method="">
+            <form action="{% url 'search' %}" method="GET">
                 <div class="form-group">
                     <input type="text" name="keyword" placeholder="Search by name" class="form-control">
                 </div>
 
 
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-make">
+                    <select class="form-control search-fields" name="model">
                         <option selected="true" disabled="disabled">Model</option>
-                        {% for model in serach_fields %}
-                        <option value="{{model.model}}">{{model.model}}</option>
+                        {% for model in model_search %}
+                        <option value="{{model}}">{{model}}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-location">
+                    <select class="form-control search-fields" name="city">
                         <option selected="true" disabled="disabled">Location</option>
-                        {% for city in serach_fields %}
-                        <option value="{{city.city}}">{{city.city}}</option>
+                        {% for city in city_search %}
+                        <option value="{{city}}">{{city}}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-year">
+                    <select class="form-control search-fields" name="year">
                         <option selected="true" disabled="disabled">Year</option>
-                        {% for year in serach_fields %}
-                        <option value="{{year.year}}">{{year.year}}</option>
+                        {% for year in year_search %}
+                        <option value="{{year}}">{{year}}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-type">
+                    <select class="form-control search-fields" name="body_style">
                         <option selected="true" disabled="disabled">Select Type Of Car</option>
-                        {% for body_style in serach_fields %}
-                        <option value="{{body_style.body_style}}">{{body_style.body_style}}</option>
+                        {% for body_style in body_style_search %}
+                        <option value="{{body_style}}">{{body_style}}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -213,8 +213,8 @@
             <p>Cars came into global use during the 20th century, and developed economies depend on them.
                 The year 1886 is regarded as the birth year of the modern car when German inventor Karl Benz patented his Benz Patent-Motorwagen.</p>
         </div>
+        {% for car in all_cars %}
         <div class="row">
-            {% for car in all_cars %}
             <div class="col-lg-4 col-md-6">
                 <div class="car-box">
                     <div class="car-thumbnail">
@@ -308,7 +308,8 @@
         <!-- Main title -->
         <div class="main-title">
             <h1>Executive <span>Team</span></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+            <p>Team members need to learn how to help one another, help other team members realize their true potential,
+                and create an environment that allows everyone to go beyond their limitations.</p>
         </div>
         <!-- Slick slider area start -->
         <div class="slick-slider-area clearfix">
