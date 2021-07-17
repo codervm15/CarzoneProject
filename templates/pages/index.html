@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-
+{% block title %} | Home {% endblock %}
 {% block content %}
 
 {% load humanize %}
@@ -328,7 +328,7 @@
                             </div>
                         </div>
                         <div class="details">
-                            <h4><a href="team-detail.html">{{team.first_name}} {{team.last_name}}</a></h4>
+                            <h4><a href="{% url 'contact' %}">{{team.first_name}} {{team.last_name}}</a></h4>
                             <h5>{{team.designation}}</h5>
                         </div>
                     </div>

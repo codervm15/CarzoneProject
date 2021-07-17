@@ -13,3 +13,14 @@ class Team(models.Model):
 
     def __str__(self):
         return self.first_name
+
+
+class Contactus(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=100)
+    subject = models.CharField(max_length=255)
+    phone = models.IntegerField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
